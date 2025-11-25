@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Configuración de targeting -->
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>GravNetCore</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <!-- Información del paquete NuGet -->
+    <PackageId>Grav-NetCore</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Invitafy Team</Authors>
+    <Company>Invitafy</Company>
+    <Product>Grav-NetCore</Product>
+    <Description>Librería genérica para operaciones CRUD con Entity Framework Core, incluyendo paginación, filtros, ordenamiento y mapeo automático entre entidades y DTOs.</Description>
+    <PackageTags>entityframework;crud;generic-repository;pagination;dto;mapping;aspnetcore</PackageTags>
+    <PackageProjectUrl>https://github.com/Invitafy/Grav-NetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Invitafy/Grav-NetCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright (c) 2025 Invitafy</Copyright>
+
+    <!-- Configuración de documentación -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+
+    <!-- Configuración de símbolos -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- Configuración adicional -->
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Dependencias de Entity Framework Core -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+
+    <!-- Dependencias de ASP.NET Core MVC -->
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Incluir README en el paquete -->
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
