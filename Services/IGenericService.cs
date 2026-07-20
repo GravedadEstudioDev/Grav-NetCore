@@ -26,8 +26,8 @@ namespace GravNetCore.Services
         /// </summary>
         /// <param name="idPropertyName">Nombre de la propiedad ID en la entidad</param>
         /// <param name="textPropertyName">Nombre de la propiedad de texto en la entidad</param>
-        /// <returns>ActionResult con lista de objetos anónimos {value, label}</returns>
-        IActionResult ListarSelect(string idPropertyName, string textPropertyName);
+        /// <returns>ActionResult con lista de SelectResponse {value, label}</returns>
+        Task<ActionResult<List<SelectResponse>>> ListarSelect(string idPropertyName, string textPropertyName);
 
         /// <summary>
         /// Recupera un registro por ID

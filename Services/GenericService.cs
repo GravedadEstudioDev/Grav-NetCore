@@ -50,16 +50,16 @@ namespace GravNetCore.Services
         /// </summary>
         /// <param name="idPropertyName">Nombre de la propiedad ID en la entidad</param>
         /// <param name="textPropertyName">Nombre de la propiedad de texto en la entidad</param>
-        /// <returns>ActionResult con lista de objetos anónimos {value, label}</returns>
-        public IActionResult ListarSelect(string idPropertyName, string textPropertyName)
+        /// <returns>ActionResult con lista de SelectResponse {value, label}</returns>
+        public async Task<ActionResult<List<SelectResponse>>> ListarSelect(string idPropertyName, string textPropertyName)
         {
             try
             {
-                var entities = _dbSet.ToList();
-                var result = entities.Select(e => new
+                var entities = await _dbSet.ToListAsync();
+                var result = entities.Select(e => new SelectResponse
                 {
-                    value = e.GetType().GetProperty(idPropertyName)?.GetValue(e),
-                    label = e.GetType().GetProperty(textPropertyName)?.GetValue(e)
+                    value = Convert.ToInt32(e.GetType().GetProperty(idPropertyName)?.GetValue(e) ?? 0),
+                    label = e.GetType().GetProperty(textPropertyName)?.GetValue(e)?.ToString() ?? string.Empty
                 }).ToList();
 
                 return new OkObjectResult(result);
